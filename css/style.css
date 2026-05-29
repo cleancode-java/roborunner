@@ -527,57 +527,66 @@ p a:hover {
 
 
 /* ==========================================================================
-   Новий адаптивний блок Featured (Вставляємо ЗАМІСТЬ старого коду)
+   Ідеальне позиціонування: Картинка на весь екран, картка фіксована праворуч
    ========================================================================== */
 
+/* Контейнер розтягується на всю ширину екрана */
 #body #featured {
-    width: 960px;
-    margin: 30px auto 20px; /* Відступ 30px зверху захищає від наповзання навігації */
-    display: flex;          /* Вишиковує картинку і картку в один ряд */
-    align-items: center;    /* Центрує їх по вертикалі */
-    justify-content: space-between; /* Робить правильну відстань між ними */
-    text-align: left;
+    position: relative;
+    width: 100%;
+    margin-top: 35px;          /* Чіткий відступ зверху, який фізично не дасть картці перекрити меню */
+    margin-bottom: 20px;
+    overflow: hidden;
 }
 
-/* Ліва частина: фонова картинка-колаж */
+/* Картинка займає всю ширину */
 #body #featured img {
     display: block;
-    width: 530px;           /* Фіксована ширина для картинки */
+    width: 100%;
     height: auto;
-    border: 2px solid #292929;
-    border-radius: 8px;     
+    min-width: 960px;          /* Щоб картинка не стискалася менше ширини контенту */
 }
 
-/* Права частина: біла картка з текстом */
+/* Розумне позиціонування картки */
 #body #featured .featured-content {
-    width: 390px;           /* Фіксована ширина для тексту */
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.98); 
+    position: absolute;
+    
+    /* Вертикальне вирівнювання строго по центру картинки */
+    top: 50%;
+    transform: translateY(-50%);
+    
+    /* Розрахунок, щоб картка не тікала до краю монітора, а трималася правої сторони сайту (960px) */
+    right: calc(50% - 480px + 20px); 
+    
+    /* Розміри картки */
+    width: 380px;              /* Зменшена акуратна ширина */
+    padding: 15px 25px;        /* Компактні внутрішні відступи */
+    
+    background: rgba(255, 255, 255, 0.95); 
     border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    box-sizing: border-box; /* Захист від розтягування через padding */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    box-sizing: border-box;
 }
 
-/* Налаштування тексту всередині картки */
+/* Оптимізація тексту всередині картки */
 #body #featured .featured-content p {
     font-size: 13px;
-    line-height: 20px;      
-    margin-bottom: 12px;
+    line-height: 18px;
+    margin-bottom: 8px;
 }
 
 #body #featured .featured-content .game-title {
     font-size: 22px;
-    margin-top: 0;
-    margin-bottom: 15px;
-    text-align: left;
+    margin-top: 5px;
+    margin-bottom: 12px;
 }
 
 #body #featured .featured-content a.more {
     display: inline-block;
-    margin-top: 5px;
-    padding: 8px 22px;
+    padding: 8px 20px;
     font-size: 13px;
+    margin-top: 5px;
 }
 
 

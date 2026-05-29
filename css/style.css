@@ -526,68 +526,34 @@ p a:hover {
 }
 
 
-/* ==========================================================================
-   Ідеальне позиціонування: Картинка на весь екран, картка фіксована праворуч
-   ========================================================================== */
-
-/* Контейнер розтягується на всю ширину екрана */
+/* Батьківський блок (робимо його відправною точкою для позиціонування) */
 #body #featured {
     position: relative;
     width: 100%;
-    margin-top: 35px;          /* Чіткий відступ зверху, який фізично не дасть картці перекрити меню */
-    margin-bottom: 20px;
-    overflow: hidden;
 }
 
-/* Картинка займає всю ширину */
+/* Картинка на фоні */
 #body #featured img {
     display: block;
     width: 100%;
     height: auto;
-    min-width: 960px;          /* Щоб картинка не стискалася менше ширини контенту */
 }
 
-/* Розумне позиціонування картки */
+/* Блок з текстом — притискаємо до правого краю */
 #body #featured .featured-content {
     position: absolute;
+    top: 50%;                  /* Центруємо по вертикалі */
+    transform: translateY(-50%); /* Ідеальне вирівнювання по центру вертикалі */
+    right: 10%;                /* Відступ від правого краю сторінки (можна міняти за смаком) */
     
-    /* Вертикальне вирівнювання строго по центру картинки */
-    top: 50%;
-    transform: translateY(-50%);
-    
-    /* Розрахунок, щоб картка не тікала до краю монітора, а трималася правої сторони сайту (960px) */
-    right: calc(50% - 480px + 20px); 
-    
-    /* Розміри картки */
-    width: 380px;              /* Зменшена акуратна ширина */
-    padding: 15px 25px;        /* Компактні внутрішні відступи */
-    
-    background: rgba(255, 255, 255, 0.95); 
+    width: 420px;              /* Ширина блоку з текстом */
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.888); /* Світлий фон, щоб текст легко читався на фоні картинки */
     border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     text-align: left;
-    box-sizing: border-box;
 }
 
-/* Оптимізація тексту всередині картки */
-#body #featured .featured-content p {
-    font-size: 13px;
-    line-height: 18px;
-    margin-bottom: 8px;
-}
-
-#body #featured .featured-content .game-title {
-    font-size: 22px;
-    margin-top: 5px;
-    margin-bottom: 12px;
-}
-
-#body #featured .featured-content a.more {
-    display: inline-block;
-    padding: 8px 20px;
-    font-size: 13px;
-    margin-top: 5px;
-}
 
 
 /* CONTACT */

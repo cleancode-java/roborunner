@@ -542,18 +542,33 @@ p a:hover {
 /* Блок з текстом — притискаємо до правого краю */
 #body #featured .featured-content {
     position: absolute;
-    top: 50%;                  /* Центруємо по вертикалі */
+    top: 58%;                  /* Центруємо по вертикалі */
     transform: translateY(-50%); /* Ідеальне вирівнювання по центру вертикалі */
-    right: 10%;                /* Відступ від правого краю сторінки (можна міняти за смаком) */
+    right: 5%;                /* Відступ від правого краю сторінки (можна міняти за смаком) */
     
-    width: 420px;              /* Ширина блоку з текстом */
+    width: 38%;
+    max-width: 420px;
+	
     padding: 30px;
     background: rgba(255, 255, 255, 0.888); /* Світлий фон, щоб текст легко читався на фоні картинки */
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     text-align: left;
 }
+@media screen and (max-width: 1024px) {
+    #body #featured .featured-content {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
 
+        width: 90%;
+        max-width: 600px;
+
+        margin: 20px auto;
+        box-shadow: none;
+    }
+}
 
 
 /* CONTACT */
